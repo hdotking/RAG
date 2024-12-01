@@ -1,13 +1,14 @@
 services:
   qdrant:
-    image: qdrant/qdrant:v1.0.0
+    image: qdrant/qdrant:latest
     container_name: qdrant
     ports:
-      - "6333:6333"
-    volumes:
+      - "6333:6333"  # REST API
+      - "6334:6334"  # gRPC API
+    volumes:  # Mounting volume to persist data
       - qdrant_data:/qdrant/storage
     environment:
-      QDRANT__LOG_LEVEL: INFO
+      QDRANT__LOG_LEVEL: DEBUG
 volumes:
   qdrant_data:
 

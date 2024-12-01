@@ -6,7 +6,7 @@ up:
 
 # Stop Docker Compose
 down:
-	docker-compose down
+	docker-compose down -v
 
 # Run the script
 run:
